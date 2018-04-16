@@ -1,0 +1,42 @@
+/* General CSS Rules */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Modal CSS Rules */
+
+#modal {
+  color: white;
+}
+
+#modal img {
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#modal button {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color: #25c442;
+  border: 1px outset #25c442;
+  color: white;
+  border-radius: 0;
+}
+
+
+/* Game board CSS rules */
+
+#game-board {
+  background: url("../images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/* Keeper CSS rule */
+
