@@ -31,17 +31,26 @@ body {
 
 /* Game board CSS rules */
 
+/* canvas {
+  position: absolute;
+} */
+
 #game-board {
-  z-index: -1;
   background: url("../images/background.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  position: relative;
+  z-index: 1;  
 }
 
-canvas{
-  z-index: 1;
+#theField {
+  z-index: 2;
+}
+
+#keeperCanvas {
+  z-index: 3;
 }
 
 
