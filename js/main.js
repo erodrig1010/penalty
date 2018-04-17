@@ -54,25 +54,163 @@ window.onload = function() {
   }
 
 
+
+
+
 // The keeper
   var Keeper = function(){
     this.x = 590;     
     this.y = 410;     
     this.width = 89;  
     this.height = 190; 
-    this.img = "images/solo-ready.png"; 
+    this.ready = "images/solo-ready.png"; 
+    this.topLeft = "/images/solo-topleft.png";
+    this.topRight = "/images/solo-topright.png";
+    this.bottomLeft = "/images/solo-bottomleft.png";
+    this.bottomRight = "/images/solo-bottomright.png";
   }
 
-  Keeper.prototype.drawKeeper = function(){ 
-    var theKeeper = new Image(); 
+// Draw the keeper
+  var theKeeper = new Image(); 
+  
+  Keeper.prototype.drawKeeper = function(imageSource){ 
     // scope thing, this function has its own scope so it needs to be called
     var keeperPosition = this;
     theKeeper.onload = function() { 
-      // console.log('up:', theKeeper, keeperPosition.x, keeperPosition.y, keeperPosition.width, keeperPosition.height);
-      ctx.drawImage(theKeeper, keeperPosition.x, keeperPosition.y, keeperPosition.width, keeperPosition.height)
-  };
-    theKeeper.src = "images/solo-ready.png"
+      ctx.drawImage(theKeeper, keeperPosition.x, keeperPosition.y);
+    };
+    theKeeper.src = imageSource
   }
+
+// Make the keeper dive
+  Keeper.prototype.dive = function(keyPressed) {
+    var that = this;
+    var start;
+
+
+    function topLeft() {
+      imageSource = "images/solo-topleft.png";
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      // imageX = 450;
+      // imageY = 270;
+      // imageWidth = 210;
+      // imageHeight = 350;
+      if (that.x !== 185 && that.y !== 250) {
+        that.x -=5;
+        that.y -=3;
+      }
+      if (that.x !== 185) {
+        that.x -= 5;
+      }
+      if (that.y !==250) {
+          that.y -= 1;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawKeeper(imageSource);
+      console.log(that.x, that.y);
+    }
+
+    function topRight() {
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      imageSource = "images/solo-topright.png";
+      // imageX = 600;
+      // imageY = 270;
+      // imageWidth = 210;
+      // imageHeight = 350;
+      if (that.x !== 1000) {
+        that.x += 5;
+      }
+      if (that.y !==250) {
+        that.y -= 5;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawKeeper(imageSource);
+    }
+
+    function bottomLeft() {
+      imageSource = "images/solo-bottomleft.png";
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      // imageX = 360;
+      // imageY = 480;
+      // imageWidth = 320;
+      // imageHeight = 120;
+      if (that.x !== 185 && that.y !== 500) {
+        that.x -= 5;
+        that.y -= 3;
+      }
+      if (that.x !== 185) {
+        that.x -= 5;
+      }
+      if (that.y !== 500) {
+        that.y -= 1;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawKeeper(imageSource);
+    }
+  
+    function bottomRight() {
+      imageSource = "images/solo-bottomright.png";
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      // imageX = 600;
+      // imageY = 480;
+      // imageWidth = 320;
+      // imageHeight = 120;
+      if (that.x !== 1010 && that.y !== 500) {
+        that.x += 5;
+        that.y -= 3;
+      }
+      if (that.x !== 1010) {
+        that.x += 5;
+      }
+      if (that.y !== 500) {
+        that.y -= 1;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawKeeper(imageSource);
+    }
+
+  switch(keyPressed) {
+    case 65:
+      start = setInterval(topLeft, 7);
+      break;
+    case 83:
+      start = setInterval(topRight, 7);
+      break;
+    case 90:
+      start = setInterval(bottomLeft, 7);
+      break;
+    case 88:
+      start = setInterval(bottomRight, 7);
+      break;
+    default:
+  }
+    // this.drawKeeper(imageSource, width, height);
+}
+
+// Randomize keeper dive position
+// function getRandomInt(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+
+// var diveSelection = getRandomInt(1, 4);
+
+
+
+
+
+
+
+
+
+
 
 
 // The ball
@@ -84,41 +222,104 @@ window.onload = function() {
     this.img = "images/ball.png"; 
   }
 
+// Draw the ball
+  var theBall = new Image(); 
+  
   Ball.prototype.drawBall = function(){ 
-    var theBall = new Image(); 
     var ballPosition = this; 
     theBall.onload = function() { 
-      console.log('up:', theBall, this.x, this.y, this.width, this.height);
       ctx.drawImage(theBall, ballPosition.x, ballPosition.y, ballPosition.width, ballPosition.height)
-  };
+    };
     theBall.src = "images/ball.png"
   }
 
-
 // Shoot the ball
   Ball.prototype.shoot = function(keyPressed) {
-  ctx.clearRect(this.x, this.y, this.width, this.height)
+    var that = this;
+    var start;
+
+    function topLeft() {
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      if (that.x !== 185) {
+        that.x -= 5;
+      }
+      if (that.y !==250) {
+        that.y -= 5;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawBall();
+    }
+
+    function topRight() {
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      if (that.x !== 1000) {
+        that.x += 5;
+      }
+      if (that.y !==250) {
+        that.y -= 5;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawBall();
+    }
+
+    function bottomLeft() {
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      if (that.x !== 185 && that.y !== 500) {
+        that.x -= 5;
+        that.y -= 3;
+      }
+      if (that.x !== 185) {
+        that.x -= 5;
+      }
+      if (that.y !== 500) {
+        that.y -= 1;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawBall();
+    }
+  
+    function bottomRight() {
+      ctx.clearRect(that.x, that.y, that.width, that.height);
+      if (that.x !== 1010 && that.y !== 500) {
+        that.x += 5;
+        that.y -= 3;
+      }
+      if (that.x !== 1010) {
+        that.x += 5;
+      }
+      if (that.y !== 500) {
+        that.y -= 1;
+      }
+      else {
+        clearInterval(start);
+      }
+      that.drawBall();
+    }
+
   switch(keyPressed) {
     case 65:
-      this.x = 185;
-      this.y = 235;
+      start = setInterval(topLeft, 7);
       break;
     case 83:
-      this.x = 1000;
-      this.y = 235;
+      start = setInterval(topRight, 7);
       break;
     case 90:
-      this.x = 185;
-      this.y = 500;
+      start = setInterval(bottomLeft, 7);
       break;
     case 88:
-      this.x = 1010;
-      this.y = 500;
+      start = setInterval(bottomRight, 7);
       break;
     default:
   }
     this.drawBall();
 }
+
 
 
 // Canvas
@@ -139,7 +340,7 @@ window.onload = function() {
     currentGame = new Game();
     var theKeeper = new Keeper();
     currentGame.keeper = theKeeper;
-    currentGame.keeper.drawKeeper();
+    currentGame.keeper.drawKeeper("images/solo-ready.png");
     var theBall = new Ball();
     currentGame.ball = theBall;
     currentGame.ball.drawBall();
@@ -150,6 +351,7 @@ window.onload = function() {
     scoreFour();
     scoreFive();
     currentGame.ball.shoot();
+    currentGame.keeper.dive();
   }
 
   document.onkeydown = function(event) {
@@ -157,6 +359,7 @@ window.onload = function() {
     }
     var shotCode = event.which;
     currentGame.ball.shoot(shotCode);
+    currentGame.keeper.dive(shotCode);
   }
 
 
