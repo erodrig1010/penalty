@@ -129,7 +129,7 @@ window.onload = function() {
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
-        start = setInterval(topLeft, 7);
+        start = setInterval(topLeft, 1);
         attempt++;
         scoresArr.push("save");
         console.log("save");
@@ -138,7 +138,7 @@ window.onload = function() {
         console.log(score);
       }
       if (diveSelection === 2) {
-        start = setInterval(topRight, 7);
+        start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -148,7 +148,7 @@ window.onload = function() {
         console.log(score);
       }
       if (diveSelection === 3) {
-        start = setInterval(bottomLeft, 7);
+        start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -158,7 +158,7 @@ window.onload = function() {
         console.log(score);
       }
       if (diveSelection === 4) {
-        start = setInterval(bottomRight, 7);
+        start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -173,7 +173,7 @@ window.onload = function() {
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
-        start = setInterval(topLeft, 7);
+        start = setInterval(topLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -182,7 +182,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 2) {
-        start = setInterval(topRight, 7);
+        start = setInterval(topRight, 1);
         attempt++;
         scoresArr.push("save");
         console.log("save");
@@ -190,7 +190,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 3) {
-        start = setInterval(bottomLeft, 7);
+        start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -199,7 +199,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 4) {
-        start = setInterval(bottomRight, 7);
+        start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -213,7 +213,7 @@ window.onload = function() {
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
-        start = setInterval(topLeft, 7);
+        start = setInterval(topLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -222,7 +222,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 2) {
-        start = setInterval(topRight, 7);
+        start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -231,7 +231,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 3) {
-        start = setInterval(bottomLeft, 7);
+        start = setInterval(bottomLeft, 1);
         attempt++;
         scoresArr.push("save");
         console.log("save");
@@ -239,7 +239,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 4) {
-        start = setInterval(bottomRight, 7);
+        start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -253,7 +253,7 @@ window.onload = function() {
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
-        start = setInterval(topLeft, 7);
+        start = setInterval(topLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -262,7 +262,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 2) {
-        start = setInterval(topRight, 7);
+        start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -271,7 +271,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 3) {
-        start = setInterval(bottomLeft, 7);
+        start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
@@ -280,7 +280,7 @@ window.onload = function() {
         console.log(scoresArr);
       }
       if (diveSelection === 4) {
-        start = setInterval(bottomRight, 7);
+        start = setInterval(bottomRight, 1);
         attempt++;
         scoresArr.push("save");
         console.log("save");
@@ -291,12 +291,12 @@ window.onload = function() {
     default:
   }
   updateScore();
+  newAttempt();
 }
 
 // Randomize keeper dive position
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
-  console.log("random generator working");
 }
 var diveSelection = getRandomInt(1, 4);
 
@@ -393,16 +393,16 @@ var diveSelection = getRandomInt(1, 4);
 
   switch(keyPressed) {
     case 65:
-      start = setInterval(topLeft, 1);
+      start = setInterval(topLeft, 10);
       break;
     case 83:
-      start = setInterval(topRight, 1);
+      start = setInterval(topRight, 10);
       break;
     case 90:
-      start = setInterval(bottomLeft, 1);
+      start = setInterval(bottomLeft, 10);
       break;
     case 88:
-      start = setInterval(bottomRight, 1);
+      start = setInterval(bottomRight, 10);
       break;
     default:
   }
@@ -482,6 +482,11 @@ var diveSelection = getRandomInt(1, 4);
     }
   }
 
+  function endGame() {
+    if (scoresArr.length === 5 && score >= 3) {
+      alert("You win!!!");
+    }
+  }
 
 
 
@@ -522,6 +527,7 @@ var Game = function() {
     hopeSoloImageSource = "images/solo-ready.png";
     animateGame();
     newAttempt();
+    endGame();
   }
 
   document.onkeydown = function(event) {
