@@ -134,3 +134,11 @@ body {
   margin-top: 10px;
   margin-left: 310px;
 }
+
+.goal {
+  background-color: #2fad08;
+}
+
+.saved {
+  background-color: #ce1404;
+}

@@ -1,12 +1,21 @@
 window.onload = function() {
 
+////////////////////////////////////////////
+///// - - - - -    Global    - - - - - /////
+////////////////////////////////////////////
+
   $('.modal').modal({backdrop: 'static', keyboard: false});
   $('.modal').modal('show');
 
   var currentGame;
-  var canStart = true;
+  var scoresArr = [];
+  var attempt = 0;
+  var score = 0;
 
 
+////////////////////////////////////////////
+///// - - - -    The keeper    - - - - /////
+////////////////////////////////////////////
 
 // The keeper
   var Keeper = function(){
@@ -14,11 +23,6 @@ window.onload = function() {
     this.y = 410;     
     this.width = 89;  
     this.height = 190; 
-    this.ready = "images/solo-ready.png"; 
-    this.topLeft = "/images/solo-topleft.png";
-    this.topRight = "/images/solo-topright.png";
-    this.bottomLeft = "/images/solo-bottomleft.png";
-    this.bottomRight = "/images/solo-bottomright.png";
   }
 
 // Draw the keeper
@@ -121,103 +125,172 @@ window.onload = function() {
     }
 
   switch(keyPressed) {
-    case 65:
+    case 65: //top right
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        attempt++;
+        scoresArr.push("save");
         console.log("save");
+        console.log(attempt);
+        console.log(scoresArr);
+        console.log(score);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
+        console.log(score);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
+        console.log(score);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
+        console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
+        console.log(score);
       }
       break;
-    case 83:
+    
+    case 83: //top right
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        attempt++;
+        scoresArr.push("save");
         console.log("save");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       break;
-    case 90:
+    
+    case 90: //bottom left
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        attempt++;
+        scoresArr.push("save");
         console.log("save");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       break;
-    case 88:
+    
+    case 88: //bottom right
       diveSelection;
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="##2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        attempt++;
+        score++;
+        scoresArr.push("goal");
         console.log("goal");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
-        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        attempt++;
+        scoresArr.push("save");
         console.log("save");
+        console.log(attempt);
+        console.log(scoresArr);
       }
       break;
     default:
   }
+  updateScore();
 }
 
 // Randomize keeper dive position
@@ -225,11 +298,13 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
   console.log("random generator working");
 }
-
 var diveSelection = getRandomInt(1, 4);
 
 
 
+////////////////////////////////////////////
+///// - - - - -   The ball   - - - - - /////
+////////////////////////////////////////////
 // The ball
   var Ball = function(){
     this.x = 595;     
@@ -335,6 +410,10 @@ var diveSelection = getRandomInt(1, 4);
 
 
 
+////////////////////////////////////////////
+///// - - - - -  Animation   - - - - - /////
+////////////////////////////////////////////
+
 // Animate the ball and keeper
   function animateGame() {
     setInterval (function(){
@@ -344,16 +423,71 @@ var diveSelection = getRandomInt(1, 4);
     }, 50)
   }
 
+// New attempt reset function
+  function newAttempt() {
+    animateGame();
+  }
+
+// Keep score
+  function updateScore() {
+    if (scoresArr.indexOf("save") === 0) {
+      $(".shot1").each(function() {
+        $(this).addClass("saved");
+      });
+    }
+    else if (scoresArr.indexOf("goal") === 0) {
+      $(".shot1").each(function() {
+        $(this).addClass("goal");
+      });
+    }
+    if (scoresArr.indexOf("save") === 1) {
+      $(".shot2").each(function() {
+        $(this).addClass("saved");
+      });
+    }
+    else if (scoresArr.indexOf("goal") === 1) {
+      $(".shot2").each(function() {
+        $(this).addClass("goal");
+      });
+    }
+    if (scoresArr.indexOf("save") === 2) {
+      $(".shot3").each(function() {
+        $(this).addClass("saved");
+      });
+    }
+    else if (scoresArr.indexOf("goal") === 2) {
+      $(".shot3").each(function() {
+        $(this).addClass("goal");
+      });
+    }
+    if (scoresArr.indexOf("save") === 3) {
+      $(".shot4").each(function() {
+        $(this).addClass("saved");
+      });
+    }
+    else if (scoresArr.indexOf("goal") === 3) {
+      $(".shot4").each(function() {
+        $(this).addClass("goal");
+      });
+    }
+    if (scoresArr.indexOf("save") === 4) {
+      $(".shot5").each(function() {
+        $(this).addClass("saved");
+      });
+    }
+    else if (scoresArr.indexOf("goal") === 4) {
+      $(".shot5").each(function() {
+        $(this).addClass("goal");
+      });
+    }
+  }
 
 
 
 
-
-
-
-
-
-
+////////////////////////////////////////////
+///// - - - - -    Canvas    - - - - - /////
+////////////////////////////////////////////
 
 // Canvas
   var fieldCanvas = document.getElementById('theField');
@@ -362,6 +496,16 @@ var diveSelection = getRandomInt(1, 4);
   fieldCanvas.style.height = window.innerHeight + "px";
   
 
+
+////////////////////////////////////////////
+///// - - - -  Game functions  - - - - /////
+////////////////////////////////////////////
+
+// Game function
+var Game = function() {
+  this.keeper = {};
+  this.ball = {};
+}
 
 // Start game on click
   document.getElementById("start-button").onclick = function() {
@@ -377,6 +521,7 @@ var diveSelection = getRandomInt(1, 4);
     currentGame.keeper = theKeeper;
     hopeSoloImageSource = "images/solo-ready.png";
     animateGame();
+    newAttempt();
   }
 
   document.onkeydown = function(event) {
@@ -388,6 +533,10 @@ var diveSelection = getRandomInt(1, 4);
   }
 
 
+
+////////////////////////////////////////////
+///// - - - - -   Styling    - - - - - /////
+////////////////////////////////////////////
 
 // Prevent scrolling
   document.getElementById("theField").onwheel = function(event){
