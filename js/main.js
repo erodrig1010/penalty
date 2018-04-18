@@ -8,54 +8,6 @@ window.onload = function() {
 
 
 
-// Scoreboard
-  function drawScoreboard() {
-    fieldctx.fillStyle="#333";
-    fieldctx.fillRect(490, 50, 300, 60);
-  }
-
-  var scoreOne = function() {
-    fieldctx.beginPath();
-    fieldctx.arc(530,80,20,0,2*Math.PI);
-    fieldctx.strokeStyle = "#777";
-    fieldctx.lineWidth= 3;
-    fieldctx.stroke();
-  }
-
-  var scoreTwo = function() {
-    fieldctx.beginPath();
-    fieldctx.arc(585,80,20,0,2*Math.PI);
-    fieldctx.strokeStyle = "#777";
-    fieldctx.lineWidth= 3;
-    fieldctx.stroke();
-  }
-
-  var scoreThree = function() {
-    fieldctx.beginPath();
-    fieldctx.arc(640,80,20,0,2*Math.PI);
-    fieldctx.strokeStyle = "#777";
-    fieldctx.lineWidth= 3;
-    fieldctx.stroke();
-  }
-
-  var scoreFour = function() {
-    fieldctx.beginPath();
-    fieldctx.arc(695,80,20,0,2*Math.PI);
-    fieldctx.strokeStyle = "#777";
-    fieldctx.lineWidth= 3;
-    fieldctx.stroke();
-  }
-
-  var scoreFive = function() {
-    fieldctx.beginPath();
-    fieldctx.arc(750,80,20,0,2*Math.PI);
-    fieldctx.strokeStyle = "#777";
-    fieldctx.lineWidth= 3;
-    fieldctx.stroke();
-  }
-
-
-
 // The keeper
   var Keeper = function(){
     this.x = 590;     
@@ -72,7 +24,7 @@ window.onload = function() {
 // Draw the keeper
   var hopeSoloImageSource;
   var theKeeper = new Image(); 
-  Keeper.prototype.drawKeeper = function(){ 
+  Keeper.prototype.drawKeeper = function() { 
     // scope thing, this function has its own scope so it needs to be called
     var keeperPosition = this;
     fieldctx.drawImage(theKeeper, keeperPosition.x, keeperPosition.y);
@@ -174,19 +126,22 @@ window.onload = function() {
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
         console.log("save");
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
         console.log("goal");
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
         console.log("goal");
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
-        console.log("goal");
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
       }
       break;
     case 83:
@@ -194,15 +149,23 @@ window.onload = function() {
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        console.log("save");
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       break;
     case 90:
@@ -210,15 +173,23 @@ window.onload = function() {
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        console.log("save");
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       break;
     case 88:
@@ -226,15 +197,23 @@ window.onload = function() {
       console.log(diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="##2fad08";
+        console.log("goal");
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#2fad08";
+        console.log("goal");
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 7);
+        document.getElementsByClassName('shot1')[0].style.backgroundColor="#ce1404";
+        console.log("save");
       }
       break;
     default:
@@ -367,6 +346,15 @@ var diveSelection = getRandomInt(1, 4);
 
 
 
+
+
+
+
+
+
+
+
+
 // Canvas
   var fieldCanvas = document.getElementById('theField');
   var fieldctx = fieldCanvas.getContext('2d');
@@ -389,12 +377,6 @@ var diveSelection = getRandomInt(1, 4);
     currentGame.keeper = theKeeper;
     hopeSoloImageSource = "images/solo-ready.png";
     animateGame();
-    drawScoreboard();
-    scoreOne();
-    scoreTwo();
-    scoreThree();
-    scoreFour();
-    scoreFive();
   }
 
   document.onkeydown = function(event) {
@@ -419,3 +401,62 @@ var diveSelection = getRandomInt(1, 4);
 
 
 } //close window.onload function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Scoreboard
+// function drawScoreboard() {
+//   fieldctx.fillStyle="#333";
+//   fieldctx.fillRect(490, 50, 300, 60);
+// }
+
+// var scoreOne = function() {
+//   fieldctx.beginPath();
+//   fieldctx.arc(530,80,20,0,2*Math.PI);
+//   fieldctx.strokeStyle = "#777";
+//   fieldctx.lineWidth= 3;
+//   fieldctx.stroke();
+// }
+
+// var scoreTwo = function() {
+//   fieldctx.beginPath();
+//   fieldctx.arc(585,80,20,0,2*Math.PI);
+//   fieldctx.strokeStyle = "#777";
+//   fieldctx.lineWidth= 3;
+//   fieldctx.stroke();
+// }
+
+// var scoreThree = function() {
+//   fieldctx.beginPath();
+//   fieldctx.arc(640,80,20,0,2*Math.PI);
+//   fieldctx.strokeStyle = "#777";
+//   fieldctx.lineWidth= 3;
+//   fieldctx.stroke();
+// }
+
+// var scoreFour = function() {
+//   fieldctx.beginPath();
+//   fieldctx.arc(695,80,20,0,2*Math.PI);
+//   fieldctx.strokeStyle = "#777";
+//   fieldctx.lineWidth= 3;
+//   fieldctx.stroke();
+// }
+
+// var scoreFive = function() {
+//   fieldctx.beginPath();
+//   fieldctx.arc(750,80,20,0,2*Math.PI);
+//   fieldctx.strokeStyle = "#777";
+//   fieldctx.lineWidth= 3;
+//   fieldctx.stroke();
+// }

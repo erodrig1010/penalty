@@ -31,28 +31,106 @@ body {
 
 /* Game board CSS rules */
 
-/* canvas {
-  position: absolute;
-} */
-
 #game-board {
   background: url("../images/background.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;
-  z-index: 1;  
+  position: absolute; 
 }
 
 #theField {
-  z-index: 2;
+  z-index: 1;
 }
 
 #keeperCanvas {
-  z-index: 3;
+  z-index: 2;
 }
 
 
-/* Keeper CSS rule */
+/* Scoreboard CSS rules */
 
+.scoreboard {
+  position: absolute;
+  height: 60px;
+  width: 400px;
+  background-color: rgba(119, 119, 119,0.8);
+  border-radius: 10px;
+  margin-top: 45px;
+  margin-left: 34%;
+  margin-right: auto;
+}
+
+.scoreboard img {
+  position: absolute;
+  height: 50px;
+  background-color: rgba(128,128,128,0);
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+.shot1 {
+  position: absolute;
+  height: 40px; 
+  width: 40px;
+  background-color: rgba(255, 255, 255,0.3);
+  border:3px solid #fff;    
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  margin-top: 10px;
+  margin-left: 110px;
+}
+
+.shot2 {
+  position: absolute;
+  height: 40px; 
+  width: 40px;
+  background-color: rgba(255, 255, 255,0.3);
+  border:3px solid #fff;    
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  margin-top: 10px;
+  margin-left: 160px;
+}
+
+.shot3 {
+  position: absolute;
+  height: 40px; 
+  width: 40px;
+  background-color: rgba(255, 255, 255,0.3);
+  border:3px solid #fff;    
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  margin-top: 10px;
+  margin-left: 210px;
+}
+
+.shot4 {
+  position: absolute;
+  height: 40px; 
+  width: 40px;
+  background-color: rgba(255, 255, 255,0.3);
+  border:3px solid #fff;    
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  margin-top: 10px;
+  margin-left: 260px;
+}
+
+.shot5 {
+  position: absolute;
+  height: 40px; 
+  width: 40px;
+  background-color: rgba(255, 255, 255,0.3);
+  border:3px solid #fff;    
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  margin-top: 10px;
+  margin-left: 310px;
+}
