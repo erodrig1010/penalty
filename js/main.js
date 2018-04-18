@@ -7,6 +7,7 @@ window.onload = function() {
   var canStart = true;
 
 
+
 // Scoreboard
   function drawScoreboard() {
     fieldctx.fillStyle="#333";
@@ -55,19 +56,6 @@ window.onload = function() {
 
 
 
-function animateGame() {
-  setInterval(function(){
-    fieldctx.clearRect(0, 0, 1275, 735);
-    currentGame.keeper.drawKeeper();
-    currentGame.ball.drawBall();
-  }, 50)
-}
-
-var hopeSoloImageSource;
-
-
-
-
 // The keeper
   var Keeper = function(){
     this.x = 590;     
@@ -82,13 +70,12 @@ var hopeSoloImageSource;
   }
 
 // Draw the keeper
+  var hopeSoloImageSource;
   var theKeeper = new Image(); 
   Keeper.prototype.drawKeeper = function(){ 
     // scope thing, this function has its own scope so it needs to be called
     var keeperPosition = this;
-    // theKeeper.onload = function() { 
-      fieldctx.drawImage(theKeeper, keeperPosition.x, keeperPosition.y);
-    // };
+    fieldctx.drawImage(theKeeper, keeperPosition.x, keeperPosition.y);
     theKeeper.src = hopeSoloImageSource
   }
 
@@ -97,10 +84,8 @@ var hopeSoloImageSource;
     var that = this;
     var start;
 
-
     function topLeft() {
       hopeSoloImageSource = "images/solo-topleft.png";
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
       // imageX = 450;
       // imageY = 270;
       // imageWidth = 210;
@@ -118,17 +103,18 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawKeeper(imageSource);
-      console.log(that.x, that.y);
     }
 
     function topRight() {
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
       hopeSoloImageSource = "images/solo-topright.png";
       // imageX = 600;
       // imageY = 270;
       // imageWidth = 210;
       // imageHeight = 350;
+      if (that.x !== 1000 && that.y !== 250) {
+        that.x += 5;
+        that.y -= 5;
+      }
       if (that.x !== 1000) {
         that.x += 5;
       }
@@ -138,12 +124,10 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawKeeper(imageSource);
     }
 
     function bottomLeft() {
       hopeSoloImageSource = "images/solo-bottomleft.png";
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
       // imageX = 360;
       // imageY = 480;
       // imageWidth = 320;
@@ -161,12 +145,10 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawKeeper(imageSource);
     }
   
     function bottomRight() {
       hopeSoloImageSource = "images/solo-bottomright.png";
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
       // imageX = 600;
       // imageY = 480;
       // imageWidth = 320;
@@ -184,41 +166,88 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawKeeper(imageSource);
     }
 
   switch(keyPressed) {
     case 65:
-      start = setInterval(topLeft, 7);
+      diveSelection;
+      console.log(diveSelection);
+      if (diveSelection === 1) {
+        start = setInterval(topLeft, 7);
+        console.log("save");
+      }
+      if (diveSelection === 2) {
+        start = setInterval(topRight, 7);
+        console.log("goal");
+      }
+      if (diveSelection === 3) {
+        start = setInterval(bottomLeft, 7);
+        console.log("goal");
+      }
+      if (diveSelection === 4) {
+        start = setInterval(bottomRight, 7);
+        console.log("goal");
+      }
       break;
     case 83:
-      start = setInterval(topRight, 7);
+      diveSelection;
+      console.log(diveSelection);
+      if (diveSelection === 1) {
+        start = setInterval(topLeft, 7);
+      }
+      if (diveSelection === 2) {
+        start = setInterval(topRight, 7);
+      }
+      if (diveSelection === 3) {
+        start = setInterval(bottomLeft, 7);
+      }
+      if (diveSelection === 4) {
+        start = setInterval(bottomRight, 7);
+      }
       break;
     case 90:
-      start = setInterval(bottomLeft, 7);
+      diveSelection;
+      console.log(diveSelection);
+      if (diveSelection === 1) {
+        start = setInterval(topLeft, 7);
+      }
+      if (diveSelection === 2) {
+        start = setInterval(topRight, 7);
+      }
+      if (diveSelection === 3) {
+        start = setInterval(bottomLeft, 7);
+      }
+      if (diveSelection === 4) {
+        start = setInterval(bottomRight, 7);
+      }
       break;
     case 88:
-      start = setInterval(bottomRight, 7);
+      diveSelection;
+      console.log(diveSelection);
+      if (diveSelection === 1) {
+        start = setInterval(topLeft, 7);
+      }
+      if (diveSelection === 2) {
+        start = setInterval(topRight, 7);
+      }
+      if (diveSelection === 3) {
+        start = setInterval(bottomLeft, 7);
+      }
+      if (diveSelection === 4) {
+        start = setInterval(bottomRight, 7);
+      }
       break;
     default:
   }
 }
 
 // Randomize keeper dive position
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+  console.log("random generator working");
+}
 
-// var diveSelection = getRandomInt(1, 4);
-
-
-
-
-
-
-
-
-
+var diveSelection = getRandomInt(1, 4);
 
 
 
@@ -233,12 +262,9 @@ var hopeSoloImageSource;
 
 // Draw the ball
   var theBall = new Image(); 
-  
   Ball.prototype.drawBall = function(){ 
     var ballPosition = this; 
-    // theBall.onload = function() { 
-      fieldctx.drawImage(theBall, ballPosition.x, ballPosition.y, ballPosition.width, ballPosition.height)
-    // };
+    fieldctx.drawImage(theBall, ballPosition.x, ballPosition.y, ballPosition.width, ballPosition.height)
     theBall.src = "images/ball.png"
   }
 
@@ -248,7 +274,10 @@ var hopeSoloImageSource;
     var start;
 
     function topLeft() {
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
+      if (that.x !== 185 && that.y !== 250) {
+        that.x -= 5;
+        that.y -= 5;
+      }
       if (that.x !== 185) {
         that.x -= 5;
       }
@@ -258,11 +287,13 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawBall();
     }
 
     function topRight() {
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
+      if (that.x !== 1000 && that.y !== 250) {
+        that.x += 5;
+        that.y -= 5;
+      }
       if (that.x !== 1000) {
         that.x += 5;
       }
@@ -272,11 +303,9 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawBall();
     }
 
     function bottomLeft() {
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
       if (that.x !== 185 && that.y !== 500) {
         that.x -= 5;
         that.y -= 3;
@@ -290,11 +319,9 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawBall();
     }
   
     function bottomRight() {
-      // fieldctx.clearRect(that.x, that.y, that.width, that.height);
       if (that.x !== 1010 && that.y !== 500) {
         that.x += 5;
         that.y -= 3;
@@ -308,37 +335,35 @@ var hopeSoloImageSource;
       else {
         clearInterval(start);
       }
-      // that.drawBall();
     }
 
   switch(keyPressed) {
     case 65:
-      start = setInterval(topLeft, 7);
+      start = setInterval(topLeft, 1);
       break;
     case 83:
-      start = setInterval(topRight, 7);
+      start = setInterval(topRight, 1);
       break;
     case 90:
-      start = setInterval(bottomLeft, 7);
+      start = setInterval(bottomLeft, 1);
       break;
     case 88:
-      start = setInterval(bottomRight, 7);
+      start = setInterval(bottomRight, 1);
       break;
     default:
   }
-    // this.drawBall();
 }
 
 
 
-
-
-// Collision detection
-// if (keypressed === 65 && keeperSelection === 1) {
-  // "save";
-// }
-
-
+// Animate the ball and keeper
+  function animateGame() {
+    setInterval (function(){
+      fieldctx.clearRect(0, 0, 1275, 735);
+      currentGame.keeper.drawKeeper();
+      currentGame.ball.drawBall();
+    }, 50)
+  }
 
 
 
@@ -347,14 +372,7 @@ var hopeSoloImageSource;
   var fieldctx = fieldCanvas.getContext('2d');
   fieldCanvas.style.width = window.innerWidth + "px";
   fieldCanvas.style.height = window.innerHeight + "px";
-
-  var keeperCanvas = document.getElementById('keeperCanvas');
-  var keeperctx = keeperCanvas.getContext('2d');
-  keeperCanvas.style.width = window.innerWidth + "px";
-  keeperCanvas.style.height = window.innerHeight + "px";
   
-
-
 
 
 // Start game on click
@@ -369,17 +387,14 @@ var hopeSoloImageSource;
     currentGame.ball = theBall;
     var theKeeper = new Keeper();
     currentGame.keeper = theKeeper;
+    hopeSoloImageSource = "images/solo-ready.png";
+    animateGame();
     drawScoreboard();
     scoreOne();
     scoreTwo();
     scoreThree();
     scoreFour();
     scoreFive();
-    // currentGame.ball.shoot();
-    // currentGame.keeper.dive();
-    hopeSoloImageSource = "images/solo-ready.png";
-    animateGame();
-
   }
 
   document.onkeydown = function(event) {
@@ -389,8 +404,6 @@ var hopeSoloImageSource;
     currentGame.ball.shoot(shotCode);
     currentGame.keeper.dive(shotCode);
   }
-
-
 
 
 
