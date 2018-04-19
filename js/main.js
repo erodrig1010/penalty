@@ -236,9 +236,9 @@ function getRandomInt() {
   var numArray = [1, 2, 3, 4];
   return numArray[Math.floor(Math.random() * numArray.length)];
 }
-var diveSelection = getRandomInt();
+var diveSelection;
 
-
+console.log(diveSelection);
 
 ////////////////////////////////////////////
 ///// - - - - -   The ball   - - - - - /////
@@ -463,7 +463,7 @@ var Game = function() {
     if (event.which === 65 || event.which === 83 || event.which === 90 || event.which === 88) {
       event.preventDefault();
     }
-    var diveSelection = getRandomInt();
+    diveSelection = getRandomInt();
     var shotCode = event.which;
     currentGame.ball.shoot(shotCode);
     currentGame.keeper.dive(shotCode);
