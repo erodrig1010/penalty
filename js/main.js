@@ -426,56 +426,138 @@ var diveSelection = getRandomInt(1, 4);
 
 // Keep score
   function updateScore() {
-    if (scoresArr.indexOf("save") === 0) {
-      $(".shot1").each(function() {
-        $(this).addClass("saved");
-      });
+    if(scoresArr.includes("save")) {
+    for(var i = 0; i< scoresArr.length; i++){
+
+      if (scoresArr.indexOf("save") === 0) {
+        console.log("case 4 save")
+            $(".shot5").each(function() {
+              $(this).addClass("saved");
+            });
+            continue;
+               } else if (scoresArr.indexOf("save") === 1) {
+                console.log("case 3 save")
+              $(".shot4").each(function() {
+                $(this).addClass("saved");
+              });
+              continue;
+          } else if (scoresArr.indexOf("save") === 2) {
+            console.log("case 2 save")
+
+            $(".shot3").each(function() {
+              $(this).addClass("saved");
+            });
+            continue;
+        } else if (scoresArr.indexOf("save") === 3) {
+          console.log("case 1 save")
+
+          $(".shot2").each(function() {
+            $(this).addClass("saved");
+          });
+          continue;
+      } else if (scoresArr.indexOf("save") === 4) {
+        console.log("case 0 save")
+
+        $(".shot1").each(function() {
+          $(this).addClass("saved");
+        });
+        continue;
     }
-    else if (scoresArr.indexOf("goal") === 0) {
-      $(".shot1").each(function() {
-        $(this).addClass("goal");
-      });
+  }
+    } else {
+      for(var i = 0; i< scoresArr.length; i++){
+
+      if (scoresArr.indexOf("goal") === 0) {
+              $(".shot5").each(function() {
+                $(this).addClass("goal");
+              });
+              continue;
+            } else if (scoresArr.indexOf("goal") === 1) {
+                    $(".shot4").each(function() {
+                      $(this).addClass("goal");
+                    });
+                    continue;
+                  }else if (scoresArr.indexOf("goal") === 2) {
+                    $(".shot3").each(function() {
+                      $(this).addClass("goal");
+                    });
+                    continue;
+                  }else if (scoresArr.indexOf("goal") === 3) {
+                    $(".shot2").each(function() {
+                      $(this).addClass("goal");
+                    });
+                    continue;
+                  } else if (scoresArr.indexOf("goal") === 4) {
+                    $(".shot1").each(function() {
+                      $(this).addClass("goal");
+                    });
+                    continue;
+                  }
+                }
     }
-    if (scoresArr.indexOf("save") === 1) {
-      $(".shot2").each(function() {
-        $(this).addClass("saved");
-      });
-    }
-    else if (scoresArr.indexOf("goal") === 1) {
-      $(".shot2").each(function() {
-        $(this).addClass("goal");
-      });
-    }
-    if (scoresArr.indexOf("save") === 2) {
-      $(".shot3").each(function() {
-        $(this).addClass("saved");
-      });
-    }
-    else if (scoresArr.indexOf("goal") === 2) {
-      $(".shot3").each(function() {
-        $(this).addClass("goal");
-      });
-    }
-    if (scoresArr.indexOf("save") === 3) {
-      $(".shot4").each(function() {
-        $(this).addClass("saved");
-      });
-    }
-    else if (scoresArr.indexOf("goal") === 3) {
-      $(".shot4").each(function() {
-        $(this).addClass("goal");
-      });
-    }
-    if (scoresArr.indexOf("save") === 4) {
-      $(".shot5").each(function() {
-        $(this).addClass("saved");
-      });
-    }
-    else if (scoresArr.indexOf("goal") === 4) {
-      $(".shot5").each(function() {
-        $(this).addClass("goal");
-      });
-    }
+    // switch(scoresArr.length) {
+    //   case 1:
+    //     if (scoresArr.indexOf("save") === 0) {
+    //       $(".shot1").each(function() {
+    //         $(this).addClass("saved");
+    //       });
+    //     }
+    //     else if (scoresArr.indexOf("goal") === 0) {
+    //       $(".shot1").each(function() {
+    //         $(this).addClass("goal");
+    //       });
+    //     }
+    //     break;
+    //   case 2:
+    //     if (scoresArr.indexOf("save") === 1) {
+    //       $(".shot2").each(function() {
+    //         $(this).addClass("saved");
+    //       });
+    //     }
+    //     else if (scoresArr.indexOf("goal") === 1) {
+    //       $(".shot2").each(function() {
+    //         $(this).addClass("goal");
+    //       });
+    //     }
+    //     break;
+    //   case 3:
+    //     if (scoresArr.indexOf("save") === 2) {
+    //       $(".shot3").each(function() {
+    //         $(this).addClass("saved");
+    //       });
+    //     }
+    //     else if (scoresArr.indexOf("goal") === 2) {
+    //       $(".shot3").each(function() {
+    //         $(this).addClass("goal");
+    //       });
+    //     }
+    //     break;
+    //   case 4:
+    //     if (scoresArr.indexOf("save") === 3) {
+    //       $(".shot4").each(function() {
+    //         $(this).addClass("saved");
+    //       });
+    //     }
+    //     else if (scoresArr.indexOf("goal") === 3) {
+    //       $(".shot4").each(function() {
+    //         $(this).addClass("goal");
+    //       });
+    //     }
+    //     break;
+    //   case 5:
+    //     if (scoresArr.indexOf("save") === 4) {
+    //       $(".shot5").each(function() {
+    //         $(this).addClass("saved");
+    //       });
+    //     }
+    //     else if (scoresArr.indexOf("goal") === 4) {
+    //       $(".shot5").each(function() {
+    //         $(this).addClass("goal");
+    //       });
+    //     }
+    //     default:
+    //     console.log("adajhda");
+    // }
   }
 
   function endGame() {
