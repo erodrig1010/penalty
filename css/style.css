@@ -31,7 +31,7 @@ body {
 
 /* Game board CSS rules */
 
-#game-board {
+.game-board {
   background: url("../images/background.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -57,7 +57,9 @@ body {
   z-index: 2;
 }
 
-
+.hidden {
+  visibility: hidden;
+}
 /* Scoreboard CSS rules */
 
 .scoreboard {

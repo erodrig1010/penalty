@@ -42,10 +42,6 @@ window.onload = function() {
 
     function topLeft() {
       hopeSoloImageSource = "images/solo-topleft.png";
-      // imageX = 450;
-      // imageY = 270;
-      // imageWidth = 210;
-      // imageHeight = 350;
       if (that.x !== 185 && that.y !== 250) {
         that.x -=5;
         that.y -=3;
@@ -63,10 +59,6 @@ window.onload = function() {
 
     function topRight() {
       hopeSoloImageSource = "images/solo-topright.png";
-      // imageX = 600;
-      // imageY = 270;
-      // imageWidth = 210;
-      // imageHeight = 350;
       if (that.x !== 1000 && that.y !== 250) {
         that.x += 5;
         that.y -= 5;
@@ -84,10 +76,6 @@ window.onload = function() {
 
     function bottomLeft() {
       hopeSoloImageSource = "images/solo-bottomleft.png";
-      // imageX = 360;
-      // imageY = 480;
-      // imageWidth = 320;
-      // imageHeight = 120;
       if (that.x !== 185 && that.y !== 500) {
         that.x -= 5;
         that.y += 1;
@@ -105,10 +93,6 @@ window.onload = function() {
   
     function bottomRight() {
       hopeSoloImageSource = "images/solo-bottomright.png";
-      // imageX = 600;
-      // imageY = 480;
-      // imageWidth = 320;
-      // imageHeight = 120;
       if (that.x !== 700 && that.y !== 500) {
         that.x += 5;
         that.y += 3;
@@ -125,176 +109,134 @@ window.onload = function() {
     }
 
   switch(keyPressed) {
-    case 65: //top right
+    case 65: //top left
       diveSelection;
-      console.log("randomdiveselection:", diveSelection);
+      console.log("top left " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
         scoresArr.push("save");
-        console.log("attempt", attempt);
-        console.log("scoreArr", scoresArr);
-        console.log("score", score);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("attempt", attempt);
-        console.log("scoreArr", scoresArr);
-        console.log("score", score);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("attempt", attempt);
-        console.log("scoreArr", scoresArr);
-        console.log("score", score);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("attempt", attempt);
-        console.log("scoreArr", scoresArr);
-        console.log("score", score);
       }
       break;
     
     case 83: //top right
       diveSelection;
-      console.log(diveSelection);
+      console.log("top right " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 1);
         attempt++;
         scoresArr.push("save");
-        console.log("save");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       break;
     
     case 90: //bottom left
       diveSelection;
-      console.log(diveSelection);
+      console.log("bottom left " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 1);
         attempt++;
         scoresArr.push("save");
-        console.log("save");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       break;
     
     case 88: //bottom right
       diveSelection;
-      console.log(diveSelection);
+      console.log("bottom right " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 1);
         attempt++;
         scoresArr.push("save");
-        console.log("save");
-        console.log(attempt);
-        console.log(scoresArr);
       }
       break;
     default:
   }
+  
   updateScore();
-  newAttempt();
+  // newAttempt();
+  endGame();
 }
 
 // Randomize keeper dive position
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+function getRandomInt() {
+  // return Math.floor(Math.random() * (max - min + 1) + min);
+  // return min = 1
+  // return max = Math.floor(Math.random() * 4);
+  var numArray = [1, 2, 3, 4];
+  return numArray[Math.floor(Math.random() * numArray.length)];
 }
-var diveSelection = getRandomInt(1, 4);
+var diveSelection = getRandomInt();
 
 
 
@@ -388,19 +330,19 @@ var diveSelection = getRandomInt(1, 4);
     }
 
   switch(keyPressed) {
-    case 65:
+      case 65:
       start = setInterval(topLeft, 10);
       break;
-    case 83:
+      case 83:
       start = setInterval(topRight, 10);
       break;
-    case 90:
+      case 90:
       start = setInterval(bottomLeft, 10);
       break;
-    case 88:
+      case 88:
       start = setInterval(bottomRight, 10);
       break;
-    default:
+      default:
   }
 }
 
@@ -412,7 +354,7 @@ var diveSelection = getRandomInt(1, 4);
 
 // Animate the ball and keeper
   function animateGame() {
-    setInterval (function(){
+      setInterval (function(){
       fieldctx.clearRect(0, 0, 1275, 735);
       currentGame.keeper.drawKeeper();
       currentGame.ball.drawBall();
@@ -420,33 +362,58 @@ var diveSelection = getRandomInt(1, 4);
   }
 
 // New attempt reset function
-  function newAttempt() {
-    var newAttempt = setInterval (startGame, 3000);
-  }
+  // function newAttempt() {
+  //   // var newAttempt = setInterval (startGame, 3000);
+  //   // startGame()
+    
+  //   // endGame()
+  // }
 
 // Keep score
   function updateScore() {
     var scoreBoardDivs = $('.scoreboard div');
-    console.log(scoreBoardDivs);
-
     scoresArr.forEach(function(eachScore, index) {
-      console.log(eachScore);
       if(eachScore === "goal") {
         scoreBoardDivs.eq(index).addClass("goal");
-        console.log("scorediv:", scoreBoardDivs[index]);
       } else if (eachScore === "save") {
         scoreBoardDivs.eq(index).addClass("saved");
-        console.log("scorediv:", scoreBoardDivs[index]);
       }
     })
   }
 
   function endGame() {
+    event.preventDefault();
     if (scoresArr.length === 5 && score >= 3) {
-      $("#game-board").each(function() {
-        $(this).addClass("winScreen");
-      })
-      alert("You win!!!");
+      // fieldctx.clearRect(0, 0, 1275, 735);
+      // $(".game-board").addClass("winScreen");
+      // console.log($(".game-board"));
+      setTimeout(function () {
+
+        alert("You win!!!");
+
+      }, 500)
+      setTimeout(function () {
+        // startGame();
+        location.reload();
+      },801)
+    } else if(scoresArr.length === 5 && score < 3) {
+      setTimeout(function () {
+
+        alert("Le who, se her!!!!")
+
+      }, 500)
+      setTimeout(function () {
+        // startGame();
+        location.reload();
+      },801)
+    } else {
+      setTimeout(function () {
+        var theBall = new Ball();
+        currentGame.ball = theBall;
+        var theKeeper = new Keeper();
+        currentGame.keeper = theKeeper;
+        hopeSoloImageSource = "images/solo-ready.png";
+      }, 800)
     }
   }
 
@@ -489,12 +456,14 @@ var Game = function() {
     hopeSoloImageSource = "images/solo-ready.png";
     animateGame();
     endGame();
-    clearInterval(newAttempt);
+    // clearInterval(newAttempt);
   }
 
   document.onkeydown = function(event) {
     if (event.which === 65 || event.which === 83 || event.which === 90 || event.which === 88) {
+      event.preventDefault();
     }
+    var diveSelection = getRandomInt();
     var shotCode = event.which;
     currentGame.ball.shoot(shotCode);
     currentGame.keeper.dive(shotCode);
