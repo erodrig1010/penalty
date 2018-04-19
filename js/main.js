@@ -127,45 +127,41 @@ window.onload = function() {
   switch(keyPressed) {
     case 65: //top right
       diveSelection;
-      console.log(diveSelection);
+      console.log("randomdiveselection:", diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
         scoresArr.push("save");
-        console.log("save");
-        console.log(attempt);
-        console.log(scoresArr);
-        console.log(score);
+        console.log("attempt", attempt);
+        console.log("scoreArr", scoresArr);
+        console.log("score", score);
       }
       if (diveSelection === 2) {
         start = setInterval(topRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
-        console.log(score);
+        console.log("attempt", attempt);
+        console.log("scoreArr", scoresArr);
+        console.log("score", score);
       }
       if (diveSelection === 3) {
         start = setInterval(bottomLeft, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
-        console.log(score);
+        console.log("attempt", attempt);
+        console.log("scoreArr", scoresArr);
+        console.log("score", score);
       }
       if (diveSelection === 4) {
         start = setInterval(bottomRight, 1);
         attempt++;
         score++;
         scoresArr.push("goal");
-        console.log("goal");
-        console.log(attempt);
-        console.log(scoresArr);
-        console.log(score);
+        console.log("attempt", attempt);
+        console.log("scoreArr", scoresArr);
+        console.log("score", score);
       }
       break;
     
@@ -425,7 +421,7 @@ var diveSelection = getRandomInt(1, 4);
 
 // New attempt reset function
   function newAttempt() {
-    animateGame();
+    var newAttempt = setInterval (startGame, 3000);
   }
 
 // Keep score
@@ -484,6 +480,9 @@ var diveSelection = getRandomInt(1, 4);
 
   function endGame() {
     if (scoresArr.length === 5 && score >= 3) {
+      $("#game-board").each(function() {
+        $(this).addClass("winScreen");
+      })
       alert("You win!!!");
     }
   }
@@ -526,8 +525,9 @@ var Game = function() {
     currentGame.keeper = theKeeper;
     hopeSoloImageSource = "images/solo-ready.png";
     animateGame();
-    newAttempt();
+    // newAttempt();
     endGame();
+    clearInterval(newAttempt);
   }
 
   document.onkeydown = function(event) {

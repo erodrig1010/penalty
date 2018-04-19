@@ -40,6 +40,15 @@ body {
   position: absolute; 
 }
 
+.winScreen {
+  background: url("../images/wingif.gif") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute; 
+}
+
 #theField {
   z-index: 1;
 }
