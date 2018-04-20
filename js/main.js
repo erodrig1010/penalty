@@ -34,12 +34,16 @@ function sound(src) {
 var soundOle;
 var whistle;
 var cheering;
+var win;
+var lose;
 
 soundOle = new sound("audio/oleole.mp3");
     soundOle.play();
 
 whistle = new sound("audio/whistle.mp3");
-cheering = new sound("audio/cheering.mp3")
+cheering = new sound("audio/cheering.mp3");
+win = new sound("audio/win.mp3");
+lose = new sound("audio/lose.mp3");
 
 
 ////////////////////////////////////////////
@@ -272,7 +276,7 @@ var diveSelection;
   var theBall = new Image(); 
   Ball.prototype.drawBall = function(){ 
     var ballPosition = this; 
-    fieldctx.drawImage(theBall, ballPosition.x, ballPosition.y, ballPosition.width, ballPosition.height)
+    fieldctx.drawImage(theBall, ballPosition.x, ballPosition.y, ballPosition.width, ballPosition.height);
     theBall.src = "images/ball.png"
   }
 
@@ -393,15 +397,15 @@ var diveSelection;
     if (scoresArr.length === 5 && score >= 3) {
       // fieldctx.clearRect(0, 0, 1275, 735);
       // $(".game-board").addClass("winScreen");
-      // console.log($(".game-board"));
+      win.play();
       setTimeout(function () {
         alert("You win!!! Click OK to play again.");
-        $(".game-board").addClass("jumbotron");
       }, 2000)
       setTimeout (function () {
         location.reload();
       },2001)
     } else if (scoresArr.length === 5 && score < 3) {
+      lose.play();
       setTimeout(function () {
         alert("Looks like you need some more practice. Click OK to try again.")
       }, 2000)
