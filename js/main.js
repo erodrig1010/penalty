@@ -399,19 +399,35 @@ var diveSelection;
       // $(".game-board").addClass("winScreen");
       win.play();
       setTimeout(function () {
-        alert("You win!!! Click OK to play again.");
-      }, 2000)
-      setTimeout (function () {
-        location.reload();
-      },2001)
+        // alert("You win!!! Click OK to play again.");
+        swal({
+          title: "You win!",
+          text: "Click below to play again.",
+          confirmButtonText: "PLAY AGAIN",
+          confirmButtonColor: "#008df9",
+      }, function() {
+          window.location = "index.html";
+      });
+      }, 1100)
+      // setTimeout (function () {
+        // location.reload();
+      // },2001)
     } else if (scoresArr.length === 5 && score < 3) {
       lose.play();
       setTimeout(function () {
-        alert("Looks like you need some more practice. Click OK to try again.")
-      }, 2000)
-      setTimeout(function () {
-        location.reload();
-      },2001)
+        // alert("Looks like you need some more practice. Click OK to try again.")
+        swal({
+          title: "You Lose!",
+          text: "Looks like you need some more practice. Click below to face off against Hope Solo again.",
+          confirmButtonText: "PLAY AGAIN",
+          confirmButtonColor: "#008df9",
+      }, function() {
+          window.location = "index.html";
+      });
+      }, 1100)
+      // setTimeout(function () {
+      //   location.reload();
+      // },2001)
     } else {
       cheering.play();
       setTimeout(function () {
