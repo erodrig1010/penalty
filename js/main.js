@@ -110,8 +110,6 @@ window.onload = function() {
 
   switch(keyPressed) {
     case 65: //top left
-      diveSelection;
-      console.log("top left " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
@@ -138,8 +136,6 @@ window.onload = function() {
       break;
     
     case 83: //top right
-      diveSelection;
-      console.log("top right " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
@@ -166,8 +162,6 @@ window.onload = function() {
       break;
     
     case 90: //bottom left
-      diveSelection;
-      console.log("bottom left " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
@@ -194,8 +188,6 @@ window.onload = function() {
       break;
     
     case 88: //bottom right
-      diveSelection;
-      console.log("bottom right " + diveSelection);
       if (diveSelection === 1) {
         start = setInterval(topLeft, 1);
         attempt++;
@@ -222,27 +214,22 @@ window.onload = function() {
       break;
     default:
   }
-  
   updateScore();
-  // newAttempt();
   endGame();
 }
 
 // Randomize keeper dive position
 function getRandomInt() {
-  // return Math.floor(Math.random() * (max - min + 1) + min);
-  // return min = 1
-  // return max = Math.floor(Math.random() * 4);
   var numArray = [1, 2, 3, 4];
   return numArray[Math.floor(Math.random() * numArray.length)];
 }
 var diveSelection;
 
-console.log(diveSelection);
 
 ////////////////////////////////////////////
 ///// - - - - -   The ball   - - - - - /////
 ////////////////////////////////////////////
+
 // The ball
   var Ball = function(){
     this.x = 595;     
@@ -347,7 +334,6 @@ console.log(diveSelection);
 }
 
 
-
 ////////////////////////////////////////////
 ///// - - - - -  Animation   - - - - - /////
 ////////////////////////////////////////////
@@ -361,14 +347,6 @@ console.log(diveSelection);
     }, 50)
   }
 
-// New attempt reset function
-  // function newAttempt() {
-  //   // var newAttempt = setInterval (startGame, 3000);
-  //   // startGame()
-    
-  //   // endGame()
-  // }
-
 // Keep score
   function updateScore() {
     var scoreBoardDivs = $('.scoreboard div');
@@ -381,6 +359,7 @@ console.log(diveSelection);
     })
   }
 
+// Function to end game or continue to next turn
   function endGame() {
     event.preventDefault();
     if (scoresArr.length === 5 && score >= 3) {
@@ -388,24 +367,19 @@ console.log(diveSelection);
       // $(".game-board").addClass("winScreen");
       // console.log($(".game-board"));
       setTimeout(function () {
-
-        alert("You win!!!");
-
-      }, 500)
+        // alert("You win!!! Click OK to play again.");
+        $(".game-board").addClass("jumbotron");
+      }, 2000)
+      // setTimeout (function () {
+      //   location.reload();
+      // },2001)
+    } else if (scoresArr.length === 5 && score < 3) {
       setTimeout(function () {
-        // startGame();
+        alert("Looks like you need some more practice. Click OK to try again.")
+      }, 2000)
+      setTimeout(function () {
         location.reload();
-      },801)
-    } else if(scoresArr.length === 5 && score < 3) {
-      setTimeout(function () {
-
-        alert("Le who, se her!!!!")
-
-      }, 500)
-      setTimeout(function () {
-        // startGame();
-        location.reload();
-      },801)
+      },2001)
     } else {
       setTimeout(function () {
         var theBall = new Ball();
@@ -413,10 +387,9 @@ console.log(diveSelection);
         var theKeeper = new Keeper();
         currentGame.keeper = theKeeper;
         hopeSoloImageSource = "images/solo-ready.png";
-      }, 800)
+      }, 2200)
     }
   }
-
 
 
 ////////////////////////////////////////////
@@ -429,7 +402,6 @@ console.log(diveSelection);
   fieldCanvas.style.width = window.innerWidth + "px";
   fieldCanvas.style.height = window.innerHeight + "px";
   
-
 
 ////////////////////////////////////////////
 ///// - - - -  Game functions  - - - - /////
@@ -456,19 +428,16 @@ var Game = function() {
     hopeSoloImageSource = "images/solo-ready.png";
     animateGame();
     endGame();
-    // clearInterval(newAttempt);
   }
 
   document.onkeydown = function(event) {
     if (event.which === 65 || event.which === 83 || event.which === 90 || event.which === 88) {
-      event.preventDefault();
     }
-    diveSelection = getRandomInt();
     var shotCode = event.which;
+    diveSelection = getRandomInt();
     currentGame.ball.shoot(shotCode);
     currentGame.keeper.dive(shotCode);
   }
-
 
 
 ////////////////////////////////////////////
@@ -488,61 +457,3 @@ var Game = function() {
 
 } //close window.onload function
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Scoreboard
-// function drawScoreboard() {
-//   fieldctx.fillStyle="#333";
-//   fieldctx.fillRect(490, 50, 300, 60);
-// }
-
-// var scoreOne = function() {
-//   fieldctx.beginPath();
-//   fieldctx.arc(530,80,20,0,2*Math.PI);
-//   fieldctx.strokeStyle = "#777";
-//   fieldctx.lineWidth= 3;
-//   fieldctx.stroke();
-// }
-
-// var scoreTwo = function() {
-//   fieldctx.beginPath();
-//   fieldctx.arc(585,80,20,0,2*Math.PI);
-//   fieldctx.strokeStyle = "#777";
-//   fieldctx.lineWidth= 3;
-//   fieldctx.stroke();
-// }
-
-// var scoreThree = function() {
-//   fieldctx.beginPath();
-//   fieldctx.arc(640,80,20,0,2*Math.PI);
-//   fieldctx.strokeStyle = "#777";
-//   fieldctx.lineWidth= 3;
-//   fieldctx.stroke();
-// }
-
-// var scoreFour = function() {
-//   fieldctx.beginPath();
-//   fieldctx.arc(695,80,20,0,2*Math.PI);
-//   fieldctx.strokeStyle = "#777";
-//   fieldctx.lineWidth= 3;
-//   fieldctx.stroke();
-// }
-
-// var scoreFive = function() {
-//   fieldctx.beginPath();
-//   fieldctx.arc(750,80,20,0,2*Math.PI);
-//   fieldctx.strokeStyle = "#777";
-//   fieldctx.lineWidth= 3;
-//   fieldctx.stroke();
-// }

@@ -5,6 +5,7 @@ body {
 }
 
 
+
 /* Modal CSS Rules */
 
 #modal {
@@ -27,6 +28,7 @@ body {
   color: white;
   border-radius: 0;
 }
+
 
 
 /* Game board CSS rules */
@@ -57,9 +59,8 @@ body {
   z-index: 2;
 }
 
-.hidden {
-  visibility: hidden;
-}
+
+
 /* Scoreboard CSS rules */
 
 .scoreboard {
