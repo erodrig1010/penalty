@@ -361,18 +361,17 @@ var diveSelection;
 
 // Function to end game or continue to next turn
   function endGame() {
-    event.preventDefault();
     if (scoresArr.length === 5 && score >= 3) {
       // fieldctx.clearRect(0, 0, 1275, 735);
       // $(".game-board").addClass("winScreen");
       // console.log($(".game-board"));
       setTimeout(function () {
-        // alert("You win!!! Click OK to play again.");
+        alert("You win!!! Click OK to play again.");
         $(".game-board").addClass("jumbotron");
       }, 2000)
-      // setTimeout (function () {
-      //   location.reload();
-      // },2001)
+      setTimeout (function () {
+        location.reload();
+      },2001)
     } else if (scoresArr.length === 5 && score < 3) {
       setTimeout(function () {
         alert("Looks like you need some more practice. Click OK to try again.")
