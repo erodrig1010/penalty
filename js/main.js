@@ -4,13 +4,42 @@ window.onload = function() {
 ///// - - - - -    Global    - - - - - /////
 ////////////////////////////////////////////
 
-  $('.modal').modal({backdrop: 'static', keyboard: false});
-  $('.modal').modal('show');
+$('.modal').modal({backdrop: 'static', keyboard: false});
+$('.modal').modal('show');
 
-  var currentGame;
-  var scoresArr = [];
-  var attempt = 0;
-  var score = 0;
+var currentGame;
+var scoresArr = [];
+var attempt = 0;
+var score = 0;
+
+
+////////////////////////////////////////////
+////// - - - -     Sounds     - - - - //////
+////////////////////////////////////////////
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+      this.sound.play();
+  }
+  this.stop = function(){
+      this.sound.pause();
+  }
+}
+var soundOle;
+var whistle;
+var cheering;
+
+soundOle = new sound("audio/oleole.mp3");
+    soundOle.play();
+
+whistle = new sound("audio/whistle.mp3");
+cheering = new sound("audio/cheering.mp3")
 
 
 ////////////////////////////////////////////
@@ -380,6 +409,7 @@ var diveSelection;
         location.reload();
       },2001)
     } else {
+      cheering.play();
       setTimeout(function () {
         var theBall = new Ball();
         currentGame.ball = theBall;
@@ -419,6 +449,9 @@ var Game = function() {
 
 // Start game function
   function startGame() {
+    soundOle.stop();
+    whistle.play();
+    cheering.play();
     currentGame = new Game();
     var theBall = new Ball();
     currentGame.ball = theBall;
