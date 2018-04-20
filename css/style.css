@@ -9,7 +9,9 @@ body {
 /* Modal CSS Rules */
 
 #modal {
-  color: white;
+  color: #333;
+  padding: 30px;
+  width: 100%;
 }
 
 #modal img {
@@ -23,10 +25,29 @@ body {
 #modal button {
   margin-top: 50px;
   margin-bottom: 30px;
-  background-color: #25c442;
-  border: 1px outset #25c442;
+  background-color: #008df9;
+  border: 1px outset #008df9;
   color: white;
   border-radius: 0;
+  margin-left: 130px;
+  height: 50px;
+  width: 170px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
+}
+
+#modal button:hover {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color: #2fad08;
+  border: 1px outset #2fad08;
+  color: white;
+  border-radius: 0;
+  margin-left: 130px;
+  height: 50px;
+  width: 170px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
 }
 
 
