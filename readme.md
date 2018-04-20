@@ -10,16 +10,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
+```
   $ git clone https://github.com/erodrig1010/pk-shootout.git
   $ cd pk-shootout
+```
 
-  Open the file in a text editor of your choice. If using Visual Studio Code, type $ code . in your console from the pk-shootout directory to open all the file in VSC and start editing.
+  Open the file in a text editor of your choice. If using Visual Studio Code, type "code ." in your console from the pk-shootout directory to open all the file in VSC and start editing.
 
 
 ## Built With
 
 ### HTML & CSS
-- Bootstrap for the start modal
+- Bootstrap for the start modal with some custom CSS styling
 - <canvas> to create the keeper and ball graphics and animations
 
 ### JavaScript
@@ -32,7 +34,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Below are some unsolved problems and improvements I want to work on. Contributions welcome!
+
+### Unsolved Problems
+- The player is able to shoot before the next turn loads
+- The keeper returning to the ready position is glitchy
+
+### Improvements
+- Smooth out the ball and keeper movements to make them more realistic
+- Clean up code
+- Add a second player
+- Add difficulty levels
+- Reset the game without refreshing the page
+- Style win/lose alert
+- Add sounds
+- Make it responsive
 
 
 ## Authors
